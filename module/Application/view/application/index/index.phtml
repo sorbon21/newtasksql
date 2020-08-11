@@ -1,0 +1,52 @@
+
+<?php
+
+$return="";
+foreach ($this->books as $item)
+{
+    $return.="<tr>";
+        $return.="<td>";
+        $return.=$item['user_id'];
+        $return.="</td>";
+        $return.="<td>";
+        $return.=$item['user_name'];
+        $return.="</td>";
+        $return.="<td>";
+        $return.=$item['product_id'];
+        $return.="</td>";
+        $return.="<td>";
+        $return.=$item['product_name'];
+        $return.="</td>";
+        $return.="<td>";
+        $return.=$item['product_price'];
+        $return.="</td>";
+        $return.="<td>";
+        $return.=$item['user_product_id'];
+        $return.="</td>";
+        $return.="<td>";
+        $return.=$item['product_created_date'];
+        $return.="</td>";
+        $return.="<td>";
+        $return.=$item['date_added_to_order'];
+        $return.="</td>";
+
+    $return.="</tr>";
+}?>
+
+<div class="row pt-5">
+    <table class="table table-bordered table-responsive">
+        <tr>
+            <th>id пользователя</th>
+            <th>Пользователь</th>
+            <th>id продукта</th>
+            <th>Продукт</th>
+            <th>Цена</th>
+            <th>id продукта пользователья</th>
+            <th>Дата создания товара</th>
+            <th>Дата добавления товара в список заказов</th>
+        </tr>
+        <?=$return?>
+    </table>
+
+</div>
+
