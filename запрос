@@ -1,0 +1,23 @@
+SELECT
+                T.user_id AS user_id,
+                users.name AS user_name,
+                product_id,
+                T.max_id AS user_product_id,
+                products.name AS product_name,
+                products.price AS product_price,
+                products.created AS product_created_date,
+                users_product.dt_created AS date_added_to_order
+            FROM
+                (
+                SELECT
+                    user_id,
+                    MAX(id) AS max_id
+                FROM
+                    users_product
+                GROUP BY
+                    user_id
+            ) AS T
+            LEFT JOIN users_product ON T.max_id = users_product.id
+            LEFT JOIN products ON users_product.product_id = products.id
+            LEFT JOIN users ON T.user_id = users.id
+            ORDER by users_product.dt_created
